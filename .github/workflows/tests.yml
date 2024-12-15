@@ -15,8 +15,9 @@ jobs:
         image: postgres:14
         env:
           POSTGRES_DB: dbdepends_test
-          POSTGRES_USER: ${{ secrets.TEST_DB_USERNAME }}
-          POSTGRES_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_HOST_AUTH_METHOD: trust
         ports:
           - 5432:5432
         options: >-
@@ -48,11 +49,11 @@ jobs:
         run: composer update --${{ matrix.stability }} --prefer-dist --no-interaction
 
       - name: Execute tests
-        run: vendor/bin/phpunit
         env:
           DB_CONNECTION: pgsql
           DB_HOST: 127.0.0.1
           DB_PORT: 5432
           DB_DATABASE: dbdepends_test
-          DB_USERNAME: ${{ secrets.TEST_DB_USERNAME }}
-          DB_PASSWORD: ${{ secrets.TEST_DB_PASSWORD }}
+          DB_USERNAME: postgres
+          DB_PASSWORD: postgres
+        run: vendor/bin/phpunit
