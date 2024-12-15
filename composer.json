@@ -1,0 +1,46 @@
+{
+  "name": "trogers1884/laravel-dbdepends",
+  "description": "A Laravel package that creates a view for PostgreSQL database dependencies",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tom Rogers"
+    },
+    {
+      "name": "Jeremy Gleed"
+    }
+  ],
+  "require": {
+    "php": "^8.1|^8.2|^8.3",
+    "illuminate/support": "^10.0|^11.0",
+    "illuminate/database": "^10.0|^11.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0",
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Trogers1884\\DBDepends\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Trogers1884\\DBDepends\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Trogers1884\\DBDepends\\DBDependsServiceProvider"
+      ]
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit",
+    "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

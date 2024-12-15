@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Test Suite">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="DB_CONNECTION" value="pgsql"/>
+        <!-- Example configuration - copy to phpunit.xml and update with your values -->
+        <env name="DB_HOST" value="your_host"/>
+        <env name="DB_PORT" value="5432"/>
+        <env name="DB_DATABASE" value="your_database"/>
+        <env name="DB_USERNAME" value="your_username"/>
+        <env name="DB_PASSWORD" value="your_password"/>
+    </php>
+</phpunit>
